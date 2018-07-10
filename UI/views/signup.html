@@ -26,29 +26,35 @@
   </header>
 
   <section class="section-wrapper">
+    <div id="apiError"></div>
     <form action="">
       <div class="form-body">
         <div class="wrapper">
           <label for="email">Full name</label>
           <input type="text" name="fullName" id="fullName" required/>
+          <p class="error" id="fullNameError"></p>
         </div>
         <div class="wrapper">
           <label for="email">Phone Number</label>
           <input type="text" name="phoneNumber" id="phoneNumber" required/>
+          <p class="error" id="phoneNumberError"></p>
         </div>
         <div class="wrapper">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" required/>
+          <p class="error" id="emailError"></p>
         </div>
         <div class="wrapper">
           <label for="password">Password</label>
           <input type="password" name="password" id="password" required/>
+          <p class="error" id="passwordError"></p>
         </div>
         <div class="wrapper">
           <label for="confirmPassword">Confirm Password</label>
           <input type="password" name="confirmPassword" id="confirmPassword" required/>
+          <p class="error" id="confirmPasswordError"></p>
         </div>
-        <p id="error"></p>
+        <div class="loader" id="spinner"></div>
         <a href="javascript:void(0);" class="btn form-button" id="submit">Sign Up</a>
         <p id="info">Already have an account?
           <a href="./login.html">Login</a>
