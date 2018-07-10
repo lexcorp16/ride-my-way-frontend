@@ -1,0 +1,26 @@
+{
+  "name": "ride-my-way-frontend",
+  "version": "1.0.0",
+  "description": "A carpooling application that enables users create ride offers and join ride offers created by other users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexcorp16/ride-my-way-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lexcorp16/ride-my-way-frontend/issues"
+  },
+  "homepage": "https://github.com/lexcorp16/ride-my-way-frontend#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
