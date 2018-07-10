@@ -259,7 +259,7 @@ form {
   margin-top: 1em;
 }
 
-#error {
+.error {
   color: red;
   display: none;
   font-size: 0.7em;
@@ -533,4 +533,34 @@ th.main-header {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   width: 100%;
+}
+
+
+/* Form styles */
+
+#apiError {
+  background-color: #ff0800;
+  color: #ffffff;
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 1em;
+  width: 40%;
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid #414042;
+  display: none;
+  margin-bottom: 10px;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
