@@ -26,17 +26,20 @@
   </header>
 
   <section class="section-wrapper">
+    <div id="apiError"></div>
     <form id="login">
       <div class="form-body">
         <div class="wrapper">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" />
+          <p class="error" id="emailError"></p>
         </div>
         <div class="wrapper">
           <label for="password">Password</label>
           <input type="password" name="password" id="password" />
+          <p class="error" id="passwordError"></p>
         </div>
-        <p id="error"></p>
+        <div class="loader" id="spinner"></div>
         <a href="javascript:void(0);" class="btn form-button" id="submit">Login</a>
         <p id="info">Don't have an account?
           <a href="./signup.html">Sign Up</a>
