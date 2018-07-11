@@ -72,9 +72,7 @@ const getRideOffers = (url, hasParams) => {
 };
 
 if (!token) {
-  window.location.replace(
-    `${window.location.protocol}//${window.location.host}/UI/index.html`,
-  );
+  window.location.href = '../index.html';
 } else {
   getRideOffers(fetchUrl, false);
 }
