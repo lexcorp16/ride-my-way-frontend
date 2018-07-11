@@ -4,6 +4,8 @@ const rideOffers = document.getElementById('rideOffers');
 const starting = document.getElementById('starting');
 const ending = document.getElementById('ending');
 
+const searchButton = document.getElementById('searchButton');
+
 const html = data => `<div class="offer">
   <div class="offer-main-content">
     <p>
@@ -42,7 +44,7 @@ const fetchData = {
   },
 };
 
-const getRideOffers = (url) => {
+const getRideOffers = (url, hasParams) => {
   fetch(url, fetchData)
     .then(response => response.json())
     .then((data) => {
@@ -51,7 +53,10 @@ const getRideOffers = (url) => {
       if (data.status === 'success') {
         if (data.data.length === 0) {
           const div = document.createElement('div');
-          div.innerText = 'There are no deals at this time';
+          div.setAttribute('style', 'text-align: center');
+          div.innerText = !hasParams
+            ? 'There are no ride offers at this time. Please try again later.'
+            : 'There are no ride offers matching the search criteria. Refresh to see all ride offers.';
 
           return rideOffers.appendChild(div);
         }
@@ -64,9 +69,18 @@ const getRideOffers = (url) => {
 };
 
 if (!token) {
-  window.location.replace(`${window.location.protocol}//${window.location.host}/UI/index.html`);
+  window.location.replace(
+    `${window.location.protocol}//${window.location.host}/UI/index.html`,
+  );
 } else {
   spinner.setAttribute('style', 'display: initial');
 
-  getRideOffers(fetchUrl);
+  getRideOffers(fetchUrl, false);
 }
+
+searchButton.onclick = () => {
+  rideOffers.innerHTML = '';
+  spinner.setAttribute('style', 'display: initial');
+
+  getRideOffers(fetchUrlWithParams, true);
+};
