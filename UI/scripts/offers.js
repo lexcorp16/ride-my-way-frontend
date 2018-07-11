@@ -63,7 +63,9 @@ const getRideOffers = (url, hasParams) => {
         }
 
         data.data.forEach((datum) => {
-          rideOffers.innerHTML += html(datum);
+          if (datum.vehicle_capacity > 0) {
+            rideOffers.innerHTML += html(datum);
+          }
         });
       }
     });
