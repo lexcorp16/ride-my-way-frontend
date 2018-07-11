@@ -35,7 +35,6 @@ const html = data => `<div class="offer">
 
 const token = localStorage.getItem('token');
 const fetchUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/rides';
-const fetchUrlWithParams = `https://ride-my-way-app.herokuapp.com/api/v1/rides?destination=${ending}&startingPoint=${starting}`;
 const fetchData = {
   method: 'GET',
   headers: {
@@ -45,6 +44,8 @@ const fetchData = {
 };
 
 const getRideOffers = (url, hasParams) => {
+  spinner.setAttribute('style', 'display: initial');
+
   fetch(url, fetchData)
     .then(response => response.json())
     .then((data) => {
@@ -73,12 +74,12 @@ if (!token) {
     `${window.location.protocol}//${window.location.host}/UI/index.html`,
   );
 } else {
-  spinner.setAttribute('style', 'display: initial');
-
   getRideOffers(fetchUrl, false);
 }
 
 searchButton.onclick = () => {
+  const fetchUrlWithParams = `https://ride-my-way-app.herokuapp.com/api/v1/rides?destination=${ending.value}&startingPoint=${starting.value}`;
+
   rideOffers.innerHTML = '';
   spinner.setAttribute('style', 'display: initial');
 
