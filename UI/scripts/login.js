@@ -54,6 +54,7 @@ const login = () => {
       if (data.status === 'success') {
         window.location.href = '../views/offers.html';
         localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
       } else {
         apiError.setAttribute('style', 'display: initial');
         apiError.innerHTML = data.message;
