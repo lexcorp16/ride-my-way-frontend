@@ -32,30 +32,41 @@
   </header>
 
   <section class="section-wrapper">
+    <div id="apiError"></div>
     <form id="offer-ride">
       <div class="form-body">
         <div class="wrapper">
           <label for="destination">Destination</label>
           <input type="text" name="destination" id="destination" required/>
+          <p class="error" id="destinationError"></p>
         </div>
         <div class="wrapper">
           <label for="destination">Point Of Departure</label>
           <input type="text" name="pointOfDeparture" id="pointOfDeparture" required/>
+          <p class="error" id="pointOfDepartureError"></p>
         </div>
         <div class="wrapper">
           <label for="destination">Departure Time</label>
           <input type="time" name="departureTime" id="departureTime" required/>
+          <p class="error" id="departureTimeError"></p>
+        </div>
+        <div class="wrapper">
+          <label for="destination">Departure Date</label>
+          <input type="date" name="departureDate" id="departureDate" required/>
+          <p class="error" id="departureDateError"></p>
         </div>
         <div class="wrapper">
           <label for="email">Vehicle Capacity</label>
           <input type="number" name="vehicleCapacity" id="vehicleCapacity" required/>
+          <p class="error" id="vehicleCapacityError"></p>
         </div>
-        <p id="error"></p>
+        <div class="loader" id="spinner"></div>
         <a href="javascript:void(0);" class="btn form-button" id="submit">Create Offer</a>
       </div>
     </form>
   </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.all.min.js"></script>
   <script src="../scripts/logout.js"></script>
   <script src="../scripts/new-offer.js"></script>
 </body>
