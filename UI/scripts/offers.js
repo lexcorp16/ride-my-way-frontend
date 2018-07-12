@@ -29,18 +29,49 @@ const html = data => `<div class="offer">
       <b>${data.vehicle_capacity}</b>
     </p>
   </div>
-  <a href="#" class="btn">
+  <a href="javascript:void(0);" class="btn" id="join" onclick="joinRide(this, '${data.id}')">
     <i class="fas fa-plus"></i>Join Ride</a>
 </div>`;
 
 const token = localStorage.getItem('token');
 const fetchUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/rides';
+
 const fetchData = {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json; charset=utf-8',
     'x-access-token': token,
   },
+};
+
+const joinData = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8',
+    'x-access-token': token,
+  },
+};
+
+const joinRide = (element, id) => {
+  const joinUrl = `https://ride-my-way-app.herokuapp.com/api/v1/rides/${id}/requests`;
+
+  element.childNodes[2].nodeValue = 'Joining...';
+  element.childNodes[1].setAttribute('style', 'display: none;');
+
+  fetch(joinUrl, joinData)
+    .then(response => response.json())
+    .then((data) => {
+      swal({
+        type: data.status === 'success' ? 'success' : 'error',
+        title: data.message,
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 2500,
+      });
+
+      element.childNodes[2].nodeValue = 'Join Ride';
+      element.childNodes[1].setAttribute('style', 'display: initial;');
+    });
 };
 
 const getRideOffers = (url, hasParams) => {
