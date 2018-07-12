@@ -251,6 +251,12 @@ form {
   width: 40%;
 }
 
+@media all and (min-width: 350px) and (max-width: 768px) {
+  form {
+    width: 60%;
+  }
+}
+
 .form-button {
   width: 70%;
 }
@@ -536,14 +542,16 @@ th.main-header {
 }
 
 
-/* Form styles */
+/* Misc styles */
 
 #apiError {
-  background-color: #ff0800;
+  background-color: #c1442e;
+  border-radius: 5px;
   color: #ffffff;
   display: none;
   margin-top: 20px;
   margin-bottom: 20px;
+  min-width: 300px;
   padding: 1em;
   width: 40%;
 }

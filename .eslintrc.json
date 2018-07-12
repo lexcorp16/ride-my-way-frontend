@@ -4,6 +4,7 @@
         "document": true,
         "window": true,
         "fetch": true,
-        "localStorage": true
+        "localStorage": true,
+        "swal": true
     }
 }
