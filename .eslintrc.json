@@ -5,6 +5,7 @@
         "window": true,
         "fetch": true,
         "localStorage": true,
-        "swal": true
+        "swal": true,
+        "jwt_decode": true
     }
 }
