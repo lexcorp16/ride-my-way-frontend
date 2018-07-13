@@ -12,13 +12,13 @@ const validateNotEmpty = () => {
   if (!email.value) {
     emailError.setAttribute('style', 'display: initial;');
     email.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    emailError.innerHTML = 'This field is required';
+    emailError.innerHTML = 'Please enter a valid email address.';
   }
 
   if (!password.value) {
     passwordError.setAttribute('style', 'display: initial;');
     password.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    passwordError.innerHTML = 'This field is required';
+    passwordError.innerHTML = 'Please enter your password.';
   }
 };
 
