@@ -98,6 +98,8 @@ const getRideOffers = (url, hasParams) => {
             rideOffers.innerHTML += html(datum);
           }
         });
+      } else {
+        window.location.href = '../index.html';
       }
     });
 };
