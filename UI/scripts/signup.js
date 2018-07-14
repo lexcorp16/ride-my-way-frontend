@@ -101,6 +101,12 @@ button.onclick = () => {
   }
 };
 
+document.body.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    button.click();
+  }
+});
+
 
 // Clear Errors
 
