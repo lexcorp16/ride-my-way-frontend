@@ -145,3 +145,9 @@ button.onclick = () => {
     createRideOffer();
   }
 };
+
+document.body.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    button.click();
+  }
+});
