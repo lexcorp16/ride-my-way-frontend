@@ -25,31 +25,31 @@ const validateNotEmpty = () => {
   if (!destination.value) {
     destinationError.setAttribute('style', 'display: initial;');
     destination.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    destinationError.innerHTML = 'This field is required';
+    destinationError.innerHTML = 'Please enter the ride destination.';
   }
 
   if (!pointOfDeparture.value) {
     pointOfDepartureError.setAttribute('style', 'display: initial;');
     pointOfDeparture.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    pointOfDepartureError.innerHTML = 'This field is required';
+    pointOfDepartureError.innerHTML = 'Please enter a starting location.';
   }
 
   if (!vehicleCapacity.value) {
     vehicleCapacityError.setAttribute('style', 'display: initial;');
     vehicleCapacity.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    vehicleCapacityError.innerHTML = 'This field is required';
+    vehicleCapacityError.innerHTML = 'Please enter the number of available seats.';
   }
 
   if (!departureDate.value) {
     departureDateError.setAttribute('style', 'display: initial;');
     departureDate.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    departureDateError.innerHTML = 'This field is required';
+    departureDateError.innerHTML = 'Please enter a valid date.';
   }
 
   if (!departureTime.value) {
     departureTimeError.setAttribute('style', 'display: initial;');
     departureTime.setAttribute('style', 'border: 1px solid red; box-shadow: 0 0 10px red');
-    departureTimeError.innerHTML = 'This field is required';
+    departureTimeError.innerHTML = 'Please enter a valid time.';
   }
 };
 
