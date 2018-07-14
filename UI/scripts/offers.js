@@ -94,7 +94,11 @@ const getRideOffers = (url, hasParams) => {
         }
 
         data.data.forEach((datum) => {
-          if (datum.vehicle_capacity > 0) {
+          const formattedDate = datum.departure_date
+            .split('T')[0]
+            .replace(/-/g, '/');
+
+          if (datum.vehicle_capacity >= 0 && Date.parse(formattedDate) > +new Date()) {
             rideOffers.innerHTML += html(datum);
           }
         });
