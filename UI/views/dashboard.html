@@ -31,7 +31,7 @@
     </nav>
   </header>
 
-  <section class="all-offers section-wrapper">
+  <section class="section-wrapper">
     <div class="details">
       <div class="information">
         <img src="../assets/images/placeholder-image.png" alt="profile-image" class="profile-image" />
@@ -40,87 +40,27 @@
       <div class="information">
         <div class="ride-info">
           <p class="text">Rides Offered: </p>
-          <p> 3</p>
+          <p id="offered"></p>
         </div>
         <div class="ride-info">
           <p class="text">Rides Taken: </p>
-          <p> 5</p>
+          <p id="taken"></p>
         </div>
         <a href="./new-offer.html" class="btn">
           <i class="fas fa-plus"></i>New Offer</a>
         <a href="./my-offers.html" class="btn">View Requests</a>
       </div>
     </div>
-    <table>
-      <tr>
-        <th colspan="5" class="main-header">Rides Taken</th>
-      </tr>
-      <tr>
-        <th>Destination</th>
-        <th>Date</th>
-        <th>Point Of Departure</th>
-        <th>Departure Time</th>
-      </tr>
-      <tr>
-        <td>Mowe</td>
-        <td>28-06-2016</td>
-        <td>Agbara</td>
-        <td>13:23 PM</td>
-      </tr>
-      <tr>
-        <td>Adio</td>
-        <td>28-06-2016</td>
-        <td>Agbara</td>
-        <td>10:23 AM</td>
-      </tr>
-      <tr>
-        <td>Anthony</td>
-        <td>28-06-2016</td>
-        <td>Agbara</td>
-        <td>15:12 PM</td>
-      </tr>
-      <tr>
-        <td>Mowe</td>
-        <td>28-06-2016</td>
-        <td>Agbara</td>
-        <td>12:00 PM</td>
-      </tr>
-      <tr>
-        <td>Agbara</td>
-        <td>28-06-2016</td>
-        <td>Sango</td>
-        <td>11:23 AM</td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <th colspan="4" class="main-header">Rides Offered</th>
-      </tr>
-      <tr>
-        <th>Destination</th>
-        <th>Date</th>
-        <th>Point Of Departure</th>
-        <th>Departure Time</th>
-      </tr>
-      <tr>
-        <td>Anthony</td>
-        <td>28-02-2018</td>
-        <td>Ikeja</td>
-        <td>11:23 AM</td>
-      </tr>
-      <tr>
-        <td>Mowe</td>
-        <td>13-04-2018</td>
-        <td>Oko Afo</td>
-        <td>12:30 PM</td>
-      </tr>
-      <tr>
-        <td>Agbara</td>
-        <td>16-04-2018</td>
-        <td>Ijanikin</td>
-        <td>10:10 AM</td>
-      </tr>
-    </table>
+    <div class="loader" id="spinnerTaken"></div>
+    <div class="table-container">
+      <table id="ridesTaken">
+      </table>
+    </div>
+    <div class="loader" id="spinnerOffered"></div>
+    <div class="table-container">
+      <table id="ridesOffered">
+      </table>
+    </div>
 
   </section>
 
