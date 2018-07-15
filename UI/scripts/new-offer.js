@@ -55,7 +55,7 @@ const validateNotEmpty = () => {
 
 const formatDate = (date) => {
   const splitDate = date.split('-');
-  return `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
+  return `${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`;
 };
 
 
@@ -135,6 +135,7 @@ pointOfDeparture.onkeydown = () => {
 
 button.onclick = () => {
   validateNotEmpty();
+  console.log(departureDate.value)
 
   if (destination.value
       && departureDate.value
