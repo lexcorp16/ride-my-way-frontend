@@ -109,27 +109,24 @@ const getUserRideRequests = () => {
           return container.appendChild(textDiv);
         }
 
-        _.uniqBy(data.data, 'ride_id').map((offer) => {
+        const uniqueOffers = _.uniqBy(data.data, 'ride_id');
+
+        const requestss = _.filter(
+          data.data,
+          request => request.status === 'pending' && request.vehicle_capacity > 0,
+        );
+
+        uniqueOffers.forEach((offer) => {
           const div = document.createElement('div');
           div.classList += 'content';
 
-          const requests = _.filter(
-            data.data,
-            request => request.ride_id === offer.ride_id && request.status === 'pending' && request.vehicle_capacity > 0,
-          );
-
-          requests.map((request) => {
-            if (requests.length > 0) {
+          requestss.forEach((request) => {
+            if (request.ride_id === offer.ride_id) {
+              container.innerHTML += collapsibleMarkup(offer);
               div.innerHTML += requestMarkup(request);
+              container.innerHTML += div.innerHTML;
             }
           });
-
-          if (requests.length > 0) {
-            container.innerHTML += collapsibleMarkup(offer);
-            container.innerHTML += div.innerHTML;
-          } else {
-            container.innerHTML = '<p>There are no pending requests to attend to</p>';
-          }
         });
       } else {
         window.location.href = '../index.html';
