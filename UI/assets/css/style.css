@@ -493,6 +493,11 @@ th.main-header {
   width: 90%;
 }
 
+.head-text {
+  text-align: center;
+  width: 100%;
+}
+
 @media all and (max-width: 450px) {
   .request {
     font-size: 0.9em;
