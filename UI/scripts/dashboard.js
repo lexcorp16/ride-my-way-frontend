@@ -11,7 +11,7 @@ const spinnerTaken = document.getElementById('spinnerTaken');
 const token = localStorage.getItem('token');
 const user = JSON.parse(localStorage.getItem('user'));
 
-salutation.innerHTML = `Welcome ${user.fullName}`;
+salutation.innerHTML = `Welcome, ${user.fullName}`;
 
 const ridesUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/users/rides';
 const requestsUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/users/requests';
@@ -25,10 +25,6 @@ const fetchData = {
 };
 
 const takenHeader = `
-<div style="color: red;">
-  <tr>
-    <th colspan="5" class="main-header">Rides Taken</th>
-  </tr>
   <tr>
     <th>Destination</th>
     <th>Date</th>
@@ -36,13 +32,9 @@ const takenHeader = `
     <th>Time</th>
     <th>Status</th>
   </tr>
-  </div>
 `;
 
 const offeredHeader = `
-  <tr>
-    <th colspan="5" class="main-header">Rides Offered</th>
-  </tr>
   <tr>
     <th>Destination</th>
     <th>Date</th>
@@ -84,20 +76,21 @@ const getUserRides = () => {
       spinnerOffered.setAttribute('style', 'display: none');
 
       if (data.status === 'success') {
+        offered.innerHTML += `${data.data.length}`;
+
         if (data.data.length === 0) {
           const div = document.createElement('div');
           div.setAttribute('style', 'text-align: center');
           div.innerText = 'You have not created any ride offers.';
 
-          return ridesOffered.appendChild(div);
+          ridesOffered.appendChild(div);
+        } else {
+          ridesOffered.innerHTML += offeredHeader;
+
+          data.data.forEach((datum) => {
+            ridesOffered.innerHTML += tableBody(datum);
+          });
         }
-
-        ridesOffered.innerHTML = offeredHeader;
-        offered.innerHTML += `${data.data.length}`;
-
-        data.data.forEach((datum) => {
-          ridesOffered.innerHTML += tableBody(datum);
-        });
       }
     });
 };
@@ -112,6 +105,8 @@ const getUserRequests = () => {
       spinnerTaken.setAttribute('style', 'display: none');
 
       if (data.status === 'success') {
+        taken.innerHTML += `${data.data.length}`;
+
         if (data.data.length === 0) {
           const div = document.createElement('div');
           div.setAttribute('style', 'text-align: center');
@@ -120,8 +115,7 @@ const getUserRequests = () => {
           return ridesTaken.appendChild(div);
         }
 
-        ridesTaken.innerHTML = takenHeader;
-        taken.innerHTML += `${data.data.length}`;
+        ridesTaken.innerHTML += takenHeader;
 
         data.data.forEach((datum) => {
           ridesTaken.innerHTML += tableBody(datum);
