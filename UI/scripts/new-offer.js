@@ -15,8 +15,11 @@ const pointOfDepartureError = document.getElementById('pointOfDepartureError');
 const apiError = document.getElementById('apiError');
 
 const token = localStorage.getItem('token');
+const user = JSON.parse(localStorage.getItem('user'));
 
-if (!token) {
+const decodedToken = jwt_decode(token);
+
+if (!token || decodedToken.id !== user.id) {
   window.location.href = '../index.html';
 }
 
@@ -135,7 +138,6 @@ pointOfDeparture.onkeydown = () => {
 
 button.onclick = () => {
   validateNotEmpty();
-  console.log(departureDate.value)
 
   if (destination.value
       && departureDate.value
