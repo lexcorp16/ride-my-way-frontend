@@ -68,7 +68,7 @@ const tableBody = (data) => {
 
 
 const getUserRides = () => {
-  spinnerOffered.setAttribute('style', 'display: block');
+  spinnerOffered.setAttribute('style', 'display: inline-block');
 
   fetch(ridesUrl, fetchData)
     .then(response => response.json())
@@ -97,7 +97,7 @@ const getUserRides = () => {
 
 
 const getUserRequests = () => {
-  spinnerTaken.setAttribute('style', 'display: block');
+  spinnerTaken.setAttribute('style', 'display: inline-block');
 
   fetch(requestsUrl, fetchData)
     .then(response => response.json())

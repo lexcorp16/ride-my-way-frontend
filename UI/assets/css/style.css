@@ -437,7 +437,8 @@ table {
   overflow-x: auto;
   width: 80%;
   height: 300px;
-  margin-top: 4em;
+  margin-top: 2em;
+  text-align: center;
 }
 
 @media all and (max-width: 450px) {
