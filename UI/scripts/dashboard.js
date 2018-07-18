@@ -4,7 +4,7 @@ const ridesTaken = document.getElementById('ridesTaken');
 const offered = document.getElementById('offered');
 const taken = document.getElementById('taken');
 
-const spinnerOffered = document.getElementById('spinnerOffered');
+const spinnerOffered = document.getElementById('spinnerOffered'); 
 const spinnerTaken = document.getElementById('spinnerTaken');
 
 
@@ -33,6 +33,8 @@ const takenHeader = `
     <th>Departure</th>
     <th>Time</th>
     <th>Status</th>
+    <th>Driver Name</th>
+    <th>Driver Phone Number</th>
   </tr>
 `;
 
@@ -54,6 +56,8 @@ const tableBody = (data) => {
         <td>${data.point_of_departure.charAt(0).toUpperCase() + data.point_of_departure.substr(1)}</td>
         <td>${data.departure_time}</td>
         <td>${data.status}</td>
+        <td>${data.driver_name}</td>
+        <td>${data.driver_phone}</td>
       </tr>
     `;
   }
