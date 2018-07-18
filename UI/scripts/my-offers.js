@@ -5,6 +5,9 @@ const container = document.getElementById('container');
 const spinner = document.getElementById('spinner');
 
 const token = localStorage.getItem('token');
+const user = JSON.parse(localStorage.getItem('user'));
+
+const decodedToken = jwt_decode(token);
 
 for (let i = 0; i < collapsible.length; i += 1) {
   collapsible[i].addEventListener('click', function () {
@@ -134,7 +137,7 @@ const getUserRideRequests = () => {
     });
 };
 
-if (!token) {
+if (!token || decodedToken.id !== user.id) {
   window.location.href = '../index.html';
 } else {
   getUserRideRequests();

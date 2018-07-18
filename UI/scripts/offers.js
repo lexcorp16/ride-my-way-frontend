@@ -6,6 +6,11 @@ const ending = document.getElementById('ending');
 
 const searchButton = document.getElementById('searchButton');
 
+const token = localStorage.getItem('token');
+const user = JSON.parse(localStorage.getItem('user'));
+
+const decodedToken = jwt_decode(token);
+
 const html = data => `<div class="offer">
   <div class="offer-main-content">
     <p>
@@ -33,7 +38,6 @@ const html = data => `<div class="offer">
     <i class="fas fa-plus"></i>Join Ride</a>
 </div>`;
 
-const token = localStorage.getItem('token');
 const fetchUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/rides';
 
 const fetchData = {
@@ -108,7 +112,7 @@ const getRideOffers = (url, hasParams) => {
     });
 };
 
-if (!token) {
+if (!token || decodedToken.id !== user.id) {
   window.location.href = '../index.html';
 } else {
   getRideOffers(fetchUrl, false);

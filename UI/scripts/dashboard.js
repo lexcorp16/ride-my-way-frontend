@@ -11,6 +11,8 @@ const spinnerTaken = document.getElementById('spinnerTaken');
 const token = localStorage.getItem('token');
 const user = JSON.parse(localStorage.getItem('user'));
 
+const decodedToken = jwt_decode(token);
+
 salutation.innerHTML = `Welcome, ${user.fullName}`;
 
 const ridesUrl = 'https://ride-my-way-app.herokuapp.com/api/v1/users/rides';
@@ -125,7 +127,7 @@ const getUserRequests = () => {
 };
 
 
-if (!token) {
+if (!token || decodedToken.id !== user.id) {
   window.location.href = '../index.html';
 } else {
   getUserRides();
