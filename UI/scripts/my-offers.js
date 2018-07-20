@@ -119,6 +119,12 @@ const getUserRideRequests = () => {
           request => request.status === 'pending' && request.vehicle_capacity > 0,
         );
 
+        if (requestss.length === 0) {
+          textDiv.innerText = 'There are no pending requests at this time.';
+
+          return container.appendChild(textDiv);
+        }
+
         uniqueOffers.forEach((offer) => {
           const div = document.createElement('div');
           div.classList += 'content';
