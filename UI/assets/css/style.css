@@ -537,16 +537,12 @@ th.main-header {
 }
 
 .collapsible:after {
-  content: '\002B';
+  content: '\2212';
   color: #414042;
   font-weight: bold;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-}
-
-.active:after {
-  content: '\2212';
 }
 
 .content {
