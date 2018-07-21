@@ -122,7 +122,9 @@ searchButton.onclick = () => {
   const fetchUrlWithParams = `https://ride-my-way-app.herokuapp.com/api/v1/rides?destination=${ending.value}&startingPoint=${starting.value}`;
 
   rideOffers.innerHTML = '';
+
   spinner.setAttribute('style', 'display: initial');
+  rideOffers.appendChild(spinner);
 
   getRideOffers(fetchUrlWithParams, true);
 };
